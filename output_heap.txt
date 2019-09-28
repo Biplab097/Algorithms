@@ -1,0 +1,3 @@
+
+Array after sorting:
+3 7 8 12 46 
