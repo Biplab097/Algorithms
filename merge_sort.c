@@ -2,6 +2,7 @@
 void merge_sort(int[],int,int);
 void merge(int[],int,int,int);
 
+
 int main(int argc[],char const *argv[])
 {
     FILE *r;
