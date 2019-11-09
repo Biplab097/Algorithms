@@ -12,6 +12,7 @@ int minKey(int key[], bool mstSet[],int V)
     for (int v = 0; v < V; v++) 
         if (mstSet[v] == false && key[v] < min) 
             min = key[v], min_index = v; 
+            
   
     return min_index; 
 } 
