@@ -2,6 +2,8 @@
 #include <limits.h> 
 #include <stdbool.h> 
 
+FILE *r,*w;
+ 
 int minKey(int key[], bool mstSet[],int V) 
 { 
     // Initialize min value 
@@ -15,10 +17,10 @@ int minKey(int key[], bool mstSet[],int V)
 } 
 int printMST(int V,int parent[V], int graph[V][V]) 
 { 
-    printf("\nEdge \tWeight\n");
+    fprintf(w,"\nEdge \tWeight\n");
     
     for (int i = 1; i < V; i++) 
-        printf("%d - %d \t%d \n", parent[i], i, graph[i][parent[i]]); 
+        fprintf(w,"%d - %d \t%d \n", parent[i], i, graph[i][parent[i]]); 
 } 
 void primMST(int V,int graph[V][V]) 
 { 
@@ -50,14 +52,15 @@ void primMST(int V,int graph[V][V])
 
  int main(int argc,const char *argv[]) 
  { 
-     FILE *r,*w;
+     //FILE *r,*w;
      
      int v,e;
      r = fopen(argv[1],"r");
+     w = fopen(argv[2],"w");
      fscanf(r,"%d",&v);
      fscanf(r,"%d",&e);
-     printf("%d\n",v);
-     printf("%d\n",e);
+     //printf("%d\n",v);
+     //printf("%d\n",e);
 
      
      int graph[v][v];
@@ -75,15 +78,15 @@ void primMST(int V,int graph[V][V])
        fscanf(r,"%d ",&test[l][d]);
        }
      }
-     printf("\n");
-     for(int l=0;l<e;l++)
+     fprintf(w,"\n");
+     /*for(int l=0;l<e;l++)
      { 
       for(int d=0;d<3;d++){
         
-        printf("%d ",test[l][d]);
+        fprintf(w,"%d ",test[l][d]);
         }
      printf("\n");
-     }
+     }*/
      int d;
      //printf("%d \n",test[6][2]);
      for(int l=0;l<e;l++)
@@ -102,15 +105,15 @@ void primMST(int V,int graph[V][V])
         graph1[l][d]=graph[l][d];
         }
      }
-     printf("\n");
-      for(int l=1;l<=v;l++)
+     //fprintf(w,"\n");
+      /*for(int l=1;l<=v;l++)
      { 
       for(int d=1;d<=v;d++){
         
-        printf("%d ",graph1[l][d]);
+        fprintf(w,"%d ",graph1[l][d]);
         }
-     printf("\n");
-     }
+     fprintf(w,"\n");
+     }*/
    primMST(v,graph1); 
   return 0;
 }
